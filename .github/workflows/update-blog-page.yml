@@ -1,0 +1,29 @@
+name: Update Blog Page
+
+on:
+  push:
+    paths:
+      - 'blogs/**' # This watches for changes in the 'blogs' folder
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Webpage
+        run: |
+            sudo apt-get update -y
+            sudo apt-get install python3 -y
+
+            python3 script.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "jaypalla23@gmail.com"
+          git config --local user.name "JayanthPalla"
+          git add .
+          git commit -m "Update blog links"
+          git push
