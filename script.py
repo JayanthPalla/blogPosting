@@ -18,7 +18,6 @@ blog_files = os.listdir(blogs_directory)
 # Initialize an empty string to store the updated HTML content
 updated_html_content = ""
 
-# Loop through the blog files and generate card links
 for blog_file in blog_files:
     if blog_file.endswith('.pdf') or blog_file.endswith('.docx'):
         # Extract the blog title (without the file extension)
