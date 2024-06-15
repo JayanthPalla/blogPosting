@@ -7,18 +7,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Build Webpage
+      - name: Install Python and Run Script
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.5'  # Replace 'x' with the desired Python version
         run: |
-            sudo apt-get update -y
-            sudo apt-get install python3 -y
-
-            python3 ../../script.py
+          python3 \script.py
 
       - name: Commit and Push Changes
         run: |
